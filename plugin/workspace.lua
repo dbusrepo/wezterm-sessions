@@ -88,7 +88,7 @@ end
 --- @return table
 function pub.get_workspaces(dir)
     local choices = {}
-    for d in io.popen("ls -pa " .. dir .. " | grep -v /"):lines() do
+    for d in io.popen("ls -pa '" .. dir .. "' | grep -v /"):lines() do
         if string.find(d, "wezterm_state_") then
             local w = d:gsub("wezterm_state_", "")
             w = w:gsub(".json", "")
